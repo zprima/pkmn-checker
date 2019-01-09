@@ -23,6 +23,8 @@ app.prepare()
 
       const data = pokemonData.filter((item) => {
         return ids.indexOf(item.id) >= 0
+      }).map((item) => {
+        return { id: item.id, name: item.name }
       });
       const json = JSON.stringify(data)
 

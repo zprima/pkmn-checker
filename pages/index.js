@@ -15,7 +15,8 @@ class Index extends Component {
     }
   }
 
-  onShowAll = () => {
+  onShowAll = (e) => {
+    e.preventDefault();
     console.log("show all")
 
     this.setState({
@@ -23,7 +24,8 @@ class Index extends Component {
     })
   }
 
-  onShowMissing = () => {
+  onShowMissing = (e) => {
+    e.preventDefault();
     var x = this.state.myPokemons.filter((ele) => {
       return ele.have == false
     })
@@ -34,7 +36,8 @@ class Index extends Component {
     })
   }
 
-  onShowHave = () => {
+  onShowHave = (e) => {
+    e.preventDefault();
     var x = this.state.myPokemons.filter((ele) => {
       return ele.have == true
     })
@@ -57,11 +60,13 @@ class Index extends Component {
     })
   }
 
-  onExportHave = () => {
+  onExportHave = (e) => {
+    e.preventDefault();
     this.onExport(true)
   }
 
-  onExportMissing = () => {
+  onExportMissing = (e) => {
+    e.preventDefault();
     this.onExport(false)
   }
 
@@ -100,15 +105,15 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <span onClick={this.onShowAll}>All</span>
+        <a href="" onClick={(e) => this.onShowAll(e)}>All</a>
         &nbsp;|&nbsp;
-        <span onClick={this.onShowMissing}>Missing</span>
+        <a href="" onClick={(e) => this.onShowMissing(e)}>Missing</a>
         &nbsp;|&nbsp;
-        <span onClick={this.onShowHave}>Have</span>
+        <a href="" onClick={(e) => this.onShowHave(e)}>Have</a>
         &nbsp;|&nbsp;
-        <span onClick={this.onExportHave}>Export Have</span>
+        <a href="" onClick={(e) => this.onExportHave(e)}>Export Have</a>
         &nbsp;|&nbsp;
-        <span onClick={this.onExportMissing}>Export Missing</span>
+        <a href="" onClick={(e) => this.onExportMissing(e)}>Export Missing</a>
         <br></br>
         <ul>
           {this.state.filteredPokemon.map((item, i) => {
